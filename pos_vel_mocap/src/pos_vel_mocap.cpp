@@ -173,7 +173,7 @@ int main( int argc, char **argv )
     ros::init( argc, argv, "pos_vel_mocap" );
     ros::NodeHandle n( "~" );
 
-    ros::Subscriber s1 = n.subscribe( "/Robot_1/pose", 100, pose_callback );
+    ros::Subscriber s1 = n.subscribe( "/uav/pose", 100, pose_callback );
     ros::Subscriber s2 =
         n.subscribe( "/vins_estimator/odometry", 10, vins_callback );
 
