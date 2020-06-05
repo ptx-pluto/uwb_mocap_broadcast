@@ -15,7 +15,7 @@ void odom_callback( nav_msgs::OdometryConstPtr const & msg ){
   transform.setOrigin( tf::Vector3(T.x,T.y,T.z) );
   tf::Quaternion q(quat.x,quat.y,quat.z,quat.w);
   transform.setRotation(q);
-  br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "uav"));
+  br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "uwb"));
 
 }
 
