@@ -30,6 +30,7 @@ find_package(catkin REQUIRED COMPONENTS
     sensor_msgs
     geometry_msgs
     serial
+    tf
     )
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
@@ -171,6 +172,8 @@ add_executable( ${PROJECT_NAME}
     ./src/main.cpp
     )
 
+add_executable(pub_tf_node src/pub_tf.cpp)
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -182,9 +185,13 @@ add_executable( ${PROJECT_NAME}
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
- target_link_libraries(${PROJECT_NAME}
+target_link_libraries(${PROJECT_NAME}
    ${catkin_LIBRARIES}
  )
+
+target_link_libraries(pub_tf_node
+        ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##
